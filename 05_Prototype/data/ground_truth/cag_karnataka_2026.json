@@ -1,0 +1,33 @@
+{
+  "source": "CAG Performance Audit of MGNREGA, Government of Karnataka, FY2019-20 to FY2023-24, tabled in the Karnataka legislature 24 March 2026.",
+  "reporting": [
+    "Deccan Herald, 24 March 2026 (ghost workers, fraudulent payments)",
+    "Organiser, 7 April 2026 (granular sub-figures; see RESEARCH.md A1.3 caveat)"
+  ],
+  "integrity_note": "This file encodes published CAG findings used as the validation target. The dataset in synth/generate.py is a SYNTHETIC reconstruction of these findings, not scraped live-portal data. The demo asserts that SAAKSHI's detectors independently re-derive these seeded structures.",
+  "anchors": {
+    "temporal_impossibility_instances": 462,
+    "temporal_impossibility_value_inr": 11900000,
+    "temporal_impossibility_value_label": "approx 1.19 crore",
+    "sole_bidder_vendor_id": "V-04412",
+    "sole_bidder_vendor_name": "Shri Basava Constructions",
+    "sole_bidder_wins": 11,
+    "sole_bidder_total_block_tenders": 16,
+    "sole_bidder_org_chain": "RDPR::Koppal::Yelburga",
+    "duplicate_photo_work_a": "KA-KLB-2026-00412",
+    "duplicate_photo_work_b": "KA-KOP-2026-00189",
+    "check_dam_split_gp": 231045,
+    "check_dam_split_threshold_inr": 500000,
+    "device_itinerary_device": "Redmi 9A",
+    "device_itinerary_min_sites": 8
+  },
+  "context_numbers": {
+    "gram_panchayats_examined": 39,
+    "projects_scrutinised": 847,
+    "projects_value_inr": 19100000,
+    "misappropriated_inr": 11900000,
+    "irregularity_rate_range": "56% to 99%",
+    "no_work_executed_cases": 12,
+    "social_audit_detected_discrepancies": 0
+  }
+}

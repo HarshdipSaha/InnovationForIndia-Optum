@@ -1,0 +1,126 @@
+==================================================================
+  SAAKSHI  the witness for every rupee
+  CAG-retrospective forensic demo
+  Data: SYNTHETIC reconstruction of the March 2026 CAG Karnataka
+        MGNREGA audit (see data/ground_truth/). Not live-scraped.
+  Corpus: 484 works . 1,304 payments . 418 photos . 509 tenders
+==================================================================
+
+== CHITRAGUPTA (1) PHOTO FORENSICS ===============================
+(a) NEAR-DUPLICATES .........................     13 pairs
+    of which cross-WORK ....................     13 pairs
+    of which cross-DISTRICT ...............      5 pairs  !
+    tightest match: hamming 0/64
+    ! nmms_88213  <->  nmms_71104   hamming 0
+       work KA-KLB-2026-00412  /  work KA-KOP-2026-00189
+       distance between works: 61.4 km
+       claimed stages: completion / completion
+(b) GEO MISMATCH (> 2.0 km) .................     45 photos
+(c) TIMESTAMP OUTSIDE WORK WINDOW ..........      9 photos
+(d) IMPOSSIBLE DEVICE ITINERARY ............      1 devices
+    ! device "Redmi 9A": 8 distinct sites in <=60 min, span 41.4 km
+
+== CHITRAGUPTA (2) PAYMENT STRUCTURE =============================
+(a) THRESHOLD SPLITTING
+    sibling groups that would cross a threshold ... 34
+    ! GP 231045, vendor V-04412: 2 works, Rs 240,000 + Rs 290,000
+      = Rs 530,000 combined, would cross the Rs 500,000 tender threshold as one work
+(b) BENFORD (payment amounts, n=1304)
+    chi2 = 1786.4   deviates (alpha=0.001)   [weak signal only]
+(c) TEMPORAL IMPOSSIBILITY
+    ! 462 stage payments AFTER claimed completion date
+      median lag: 50 days . total value Rs 1.19 crore
+      -> CAG Karnataka finding: 462 instances, approx 1.19 crore.  MATCH -- VALIDATED
+
+== CHITRAGUPTA (3) NETWORK - PROCUREMENT RED FLAGS ===============
+    No Indian body publishes these. This is a first computation.
+
+    org_chain                            n  single-bid   premium  winner-div
+    ----------------------------------------------------------------------
+    RDPR::Koppal::Yelburga              16       68.8%     -0.4%        0.25  !
+    RDPR::Kalaburagi::Kamalapur         23       52.2%     -1.7%        0.17  !
+    PWD::Ballari::Sandur                41       31.7%     -3.3%        0.10
+    RDPR::Block12::GP226543             18       16.7%     -3.8%        0.22
+    RDPR::Block17::GP226545             25       16.0%     -5.3%        0.16
+    RDPR::Block3::GP226543              19       15.8%     -4.7%        0.21
+    ----------------------------------------------------------------------
+    NATIONAL (all entities, n=509)  single-bid rate = 14.0%   -> FIRST EVER
+
+    ! vendor V-04412 (Shri Basava Constructions): won 11 tenders, 11 as SOLE bidder, avg premium +2.1%
+
+== GHADI - CASE FILE (four independent signals, never one score) =
+==============================================================
+CASE KA-KLB-2026-00412
+Kamalapur GP, Kalaburagi, Karnataka . LGD 226534
+Opened 14 July 2026 . Status: AWAITING DEPARTMENT RESPONSE
+==============================================================
+
+WORK      Farm pond, survey no. 112/3
+SCHEME    MGNREGA
+SANCTION  Rs 420,000 . 12 March 2026
+CLAIMED   Completed 14 June 2026
+
+------------------- 4 INDEPENDENT SIGNALS --------------------
+(1) PHOTO FORENSIC                          confidence HIGH
+    Completion photo dHash-near-identical (Hamming 0/64) to the
+    completion photo of work KA-KOP-2026-00189, 61.4 km away.
+    > method: perceptual hash, deterministic, reproducible
+    > evidence: nmms_88213 . nmms_71104
+
+(2) CITIZEN VERIFICATION                    confidence HIGH
+    3 independent anonymous reports: "no pond at this location."
+    Sybil-checked, zkSNARK-bound, no linkage to identity.
+    ! simulated input in this offline demo.
+    > method: truth discovery over independent reports
+    > evidence: pramaan_a91f2 . pramaan_c04e8 . pramaan_7b331
+
+(3) NETWORK                                 confidence MEDIUM
+    Work's vendor V-04412 won 11 block tenders
+    as sole bidder; award premium +2.1%.
+    > method: LightGBM on graph features, PU-calibrated (internal triage only)
+    > evidence: CPPP award IDs [list]
+
+(4) SATELLITE                               confidence LOW
+    Sentinel-2 NDWI delta below threshold; no surface-water feature appeared.
+    ! 10 m GSD. Small ponds may be below detection limit.
+    ! NOT dispositive. Trigger for human verification only.
+    ! simulated input in this offline demo; production runs Sentinel-2.
+    > method: bi-temporal change detection
+
+--------------------------------------------------------------
+WHAT WE DO NOT KNOW
+    . Whether the pond exists but is below satellite resolution
+    . Whether the duplicate photo is fraud or an upload error
+    . Whether the sole-bidder pattern reflects collusion or a genuine absence of local contractors
+    ! This case file is a QUESTION, not a verdict.
+--------------------------------------------------------------
+THE CLOCK
+    RTI s.6(1) filed .............. 14 Jul 2026
+    Statutory deadline (30 days) .. 13 Aug 2026
+    DAYS ELAPSED: 16 . DAYS REMAINING: 14
+    CPGRAMS grievance ............. CPGRAMS/2026/0412773 (21-day deadline)
+    Gram Sabha agenda item ........ queued, next sitting
+    Responsible office ............ [designation only, never a name]
+==============================================================
+
+-- AUTO-DRAFTED RTI (RTI Act 2005, s.6(1)) ------------------------
+To: The Public Information Officer
+Subject: Request under section 6(1), Right to Information Act 2005
+
+1. In respect of work KA-KLB-2026-00412 ("Farm pond, survey no. 112/3") in Kamalapur GP, Kalaburagi, Karnataka (LGD 226534), sanctioned Rs 420,000 on 12 March 2026 under MGNREGA and marked completed on 14 June 2026, please provide certified copies of:
+   (a) the measurement book and completion certificate;
+   (b) all muster rolls and the wage/material payment vouchers;
+   (c) the geo-tagged completion photographs and their upload logs;
+   (d) the technical sanction and the third-party quality report, if any.
+2. Please state the name/designation of the officer who certified completion.
+
+
+== VALIDATION vs published CAG findings ==========================
+  [PASS] photo duplicate reused across the two CAG works      pair=found
+  [PASS] impossible itinerary for Redmi 9A                    sites=8
+  [PASS] threshold-split (Koppal check dam) detected          found
+  [PASS] temporal impossibility count == 462                  got=462
+  [PASS] sole-bidder vendor won 11 of 16                      sole_wins=11
+==================================================================
+  RESULT: ALL CHECKS PASSED -- detectors re-derived CAG findings
+==================================================================

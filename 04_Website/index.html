@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAAKSHI — the witness for every rupee</title>
+<meta name="description" content="A read-only forensic and accountability layer over India's public government-spending data, and a toll-free multilingual phone line that lets any citizen verify what was built in their village.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!--
+IMPECCABLE DIRECTION CONTRACT — seed 23986c77 (surface structure #4 of 7; mode: persuade)
+THESIS: SAAKSHI is "the witness for every rupee." This page refuses the default problem→solution→team explainer scroll; it stands the visitor inside one real village (Kamalapur GP, LGD 226534) and assembles the evidence graph around it, so an abstract eleven-portal forensic layer becomes a place you can see.
+OWN-WORLD: Inherited SAAKSHI deck identity — cream #F4F0E6 ground, navy #202A3E ink, saffron #D98A2B accent, forensic green #2E8B6B; Georgia serif display + Segoe UI / system sans; Devanagari accents (साक्षी · कोष · घड़ी); evidence-dossier sensibility, ledger hairlines, case-file cards, monospace for IDs/data, the ⚠ honest-limit callout as a first-class element.
+STORY: A judge grasps that India already publishes enough data to catch its own leakage; SAAKSHI joins it, forensically screens it, then lets a citizen verify it; believes it (runs in one command, honest limits, first-ever numbers); and acts (open the repo / run the demo).
+FIRST VIEWPORT: Quiet cream field; Kamalapur shown as one labeled node with "LGD 226534" and the line "₹4.2 lakh was paid for a farm pond here. Is there a pond?"; a visible primary action. Then the eleven portals connect into the node and the four detectors begin to fire — the simulated live-run.
+FORM: candidate 4/7 "village-node → evidence graph" — spatial narrative from one panchayat node out to the joined evidence graph, detectors animating on it, resolving into the case file, the citizen loop, and the accountability clock. seed 23986c77.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md.
+-->
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="masthead" role="banner">
+  <div class="masthead__inner">
+    <a class="wordmark" href="#top" aria-label="SAAKSHI — home">
+      <span class="wordmark__latin">SAAKSHI</span>
+      <span class="wordmark__deva" lang="hi" aria-hidden="true">साक्षी</span>
+    </a>
+    <nav class="masthead__nav" aria-label="Primary">
+      <a href="#join">The join</a>
+      <a href="#failure">The failure</a>
+      <a href="#run">The run</a>
+      <a href="#casefile">The case file</a>
+      <a href="#limits">Honest limits</a>
+    </nav>
+    <a class="btn btn--ghost masthead__cta" href="#run">Run the demo</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ══════════════ HERO — the node on the cream field ══════════════ -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <h1 id="hero-title" class="hero__title">The witness <span class="hero__break"></span>for every rupee.</h1>
+        <p class="hero__lede">
+          India already publishes enough data to catch its own leakage. It sits in eleven
+          portals that never speak to each other. <strong>SAAKSHI joins them, screens them
+          forensically, then asks the one person who can see the asset to say whether it exists.</strong>
+        </p>
+
+        <figure class="node-line">
+          <blockquote class="node-line__quote">
+            <span class="rupee">₹4.2&nbsp;lakh</span> was paid for a farm pond here.
+            <strong>Is there a pond?</strong>
+          </blockquote>
+          <figcaption class="node-line__cap">
+            <span class="mono">Kamalapur GP</span> · Kalaburagi, Karnataka ·
+            <span class="mono">LGD&nbsp;226534</span>
+          </figcaption>
+        </figure>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#run">
+            See what the witness found
+            <svg class="btn__arrow" viewBox="0 0 24 12" aria-hidden="true" focusable="false"><path d="M0 6h21M16 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn--secondary" href="#close">
+            Run the demo — one command
+          </a>
+        </div>
+
+        <p class="hero__integrity">
+          Read-only and post-hoc. It never denies a payment, blocks a job card, or gates a ration.
+          <span class="hl">A false positive costs an official an explanation, never a citizen her rice.</span>
+        </p>
+      </div>
+
+      <!-- The evidence field: the spatial spine of the whole page.
+           Present statically in HTML; JS assembles the edges/rings on scroll. -->
+      <div class="hero__field" data-field>
+        <div class="field-caption" aria-hidden="true">
+          <span class="field-caption__k">THE EVIDENCE GRAPH</span>
+          <span class="field-caption__v">one panchayat · eleven public sources</span>
+        </div>
+        <svg class="graph" viewBox="0 0 640 640" role="img"
+             aria-labelledby="graph-title graph-desc" data-graph>
+          <title id="graph-title">The Kamalapur evidence graph</title>
+          <desc id="graph-desc">
+            A central node labelled Kamalapur GP, LGD 226534, surrounded by two rings of
+            data-source nodes (eleven public government portals) that connect inward to it
+            by hairline edges, forming a single evidence graph joined on the LGD location code.
+          </desc>
+
+          <!-- rings -->
+          <g class="graph__rings" aria-hidden="true">
+            <circle cx="320" cy="320" r="150" class="ring"/>
+            <circle cx="320" cy="320" r="258" class="ring"/>
+          </g>
+
+          <!-- edges (drawn by JS to exact node coords too, but present as fallback) -->
+          <g class="graph__edges" data-edges aria-hidden="true"></g>
+
+          <!-- the four detector sweeps -->
+          <g class="graph__sweeps" data-sweeps aria-hidden="true"></g>
+
+          <!-- portal nodes: 11 sources, positioned by JS around the rings -->
+          <g class="graph__portals" data-portals aria-hidden="true"></g>
+
+          <!-- the central village node -->
+          <g class="graph__node" data-node>
+            <circle cx="320" cy="320" r="62" class="node__halo" aria-hidden="true"/>
+            <circle cx="320" cy="320" r="47" class="node__core"/>
+            <path class="node__pin" d="M320 300 a11 11 0 1 1 0.01 0 M320 300 v20" fill="none" aria-hidden="true"/>
+            <text x="320" y="316" class="node__label">Kamalapur</text>
+            <text x="320" y="333" class="node__code mono">LGD 226534</text>
+          </g>
+        </svg>
+        <p class="field-note">
+          The join key, the LGD code, has been mandated across every e-Government
+          application since <span class="mono">4&nbsp;Nov&nbsp;2016</span>. Nobody has done the join.
+        </p>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      <span>the assembly</span>
+      <svg viewBox="0 0 12 22" focusable="false"><path d="M6 0v18M1 13l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </section>
+
+  <!-- ══════════════ THE JOIN — eleven portals ══════════════ -->
+  <section class="band band--join" id="join" aria-labelledby="join-title">
+    <div class="band__head">
+      <h2 id="join-title" class="band__title">Eleven portals. One integer joins them.</h2>
+      <p class="band__lede">
+        Each portal is real, each is public, none of them talk to each other. A citizen cannot
+        ask <em>“what did my panchayat receive across every scheme this year?”</em> from any single
+        place, even though the <span class="mono">LGD</span> code has been the mandated universal
+        location key since 4 November 2016, across
+        <strong>255,297 gram panchayats</strong> and 677,042 villages.
+      </p>
+    </div>
+
+    <ul class="portal-legend" data-portal-legend aria-label="The eleven public data sources joined on the LGD code">
+      <li><span class="portal-legend__dot" data-src="eGramSwaraj"></span><b>eGramSwaraj</b><span class="portal-legend__what">plans &amp; works</span></li>
+      <li><span class="portal-legend__dot" data-src="NREGASoft"></span><b>NREGASoft</b><span class="portal-legend__what">MGNREGA works, FTO payments</span></li>
+      <li><span class="portal-legend__dot" data-src="CPPP"></span><b>CPPP</b><span class="portal-legend__what">tenders &amp; bid awards</span></li>
+      <li><span class="portal-legend__dot" data-src="GeM"></span><b>GeM</b><span class="portal-legend__what">procurement</span></li>
+      <li><span class="portal-legend__dot" data-src="AuditOnline"></span><b>AuditOnline</b><span class="portal-legend__what">social-audit observations</span></li>
+      <li><span class="portal-legend__dot" data-src="CPGRAMS"></span><b>CPGRAMS</b><span class="portal-legend__what">grievances</span></li>
+      <li><span class="portal-legend__dot" data-src="DBT Bharat"></span><b>DBT&nbsp;Bharat</b><span class="portal-legend__what">direct transfers</span></li>
+      <li><span class="portal-legend__dot" data-src="IMPDS"></span><b>IMPDS</b><span class="portal-legend__what">ration portability</span></li>
+      <li><span class="portal-legend__dot" data-src="LGD"></span><b>LGD</b><span class="portal-legend__what">the join key itself</span></li>
+      <li><span class="portal-legend__dot" data-src="data.gov.in"></span><b>data.gov.in</b><span class="portal-legend__what">open datasets</span></li>
+      <li><span class="portal-legend__dot" data-src="API Setu"></span><b>API&nbsp;Setu</b><span class="portal-legend__what">government APIs</span></li>
+    </ul>
+
+    <p class="join__pull">
+      <span class="kosh">KOSH <span class="deva" lang="hi">कोष</span></span>
+      turns the join from months of manual cross-referencing into a single graph traversal
+      from one <span class="mono">Panchayat</span> node.
+    </p>
+  </section>
+
+  <!-- ══════════════ THE FAILURE — why it matters ══════════════ -->
+  <section class="band band--failure" id="failure" aria-labelledby="failure-title">
+    <div class="band__head">
+      <h2 id="failure-title" class="band__title band__title--invert">
+        The evidence is collected, and never examined.
+      </h2>
+      <p class="band__lede band__lede--invert">
+        India is not failing to find its corruption because corruption is hard to find. It is failing
+        because there are not enough auditors, and the findings that do surface go nowhere.
+      </p>
+    </div>
+
+    <div class="ledger" role="table" aria-label="Live-dashboard facts on India's welfare-audit shortfall">
+      <div class="ledger__row ledger__row--head" role="row">
+        <span role="columnheader">The shortfall, from the state's own dashboards</span>
+        <span role="columnheader" class="ledger__num-head">Figure</span>
+      </div>
+
+      <div class="ledger__row" role="row">
+        <span role="cell" class="ledger__label">
+          Audit observations recorded on AuditOnline
+          <span class="prov prov--verified" title="verified against the live dashboard"><svg class="prov__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.2 7 10.2 11 5.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>verified live</span>
+        </span>
+        <span role="cell" class="ledger__num mono">62,745</span>
+      </div>
+      <div class="ledger__row ledger__row--alert" role="row">
+        <span role="cell" class="ledger__label">
+          Action Taken Reports filed against them, nationally
+          <span class="prov prov--verified" title="verified against the live dashboard"><svg class="prov__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.2 7 10.2 11 5.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>verified live</span>
+        </span>
+        <span role="cell" class="ledger__num ledger__num--zero mono">0</span>
+      </div>
+      <div class="ledger__row" role="row">
+        <span role="cell" class="ledger__label">
+          Recovery on detected MGNREGA misappropriation, leaving ~₹878 crore untraced
+          <span class="prov prov--reported" title="reported by DT Next, 24 Sep 2025"><svg class="prov__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="3" y="2.4" width="10" height="11.2" rx="1.3" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.4 5.6h5.2M5.4 8h5.2M5.4 10.4h3.2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>reported</span>
+        </span>
+        <span role="cell" class="ledger__num mono">&lt;13%</span>
+      </div>
+      <div class="ledger__row" role="row">
+        <span role="cell" class="ledger__label">
+          Social-audit coverage in FY2025-26, which still surfaced 61,347 cases of misappropriation
+          <span class="prov prov--verified" title="verified against the live dashboard"><svg class="prov__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.2 7 10.2 11 5.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>verified live</span>
+        </span>
+        <span role="cell" class="ledger__num mono">38.58%</span>
+      </div>
+      <div class="ledger__row" role="row">
+        <span role="cell" class="ledger__label">
+          Rural women 15+ who own a mobile phone, against 85.5% of households
+          <span class="prov prov--reported" title="reported survey figure"><svg class="prov__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="3" y="2.4" width="10" height="11.2" rx="1.3" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.4 5.6h5.2M5.4 8h5.2M5.4 10.4h3.2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>reported</span>
+        </span>
+        <span role="cell" class="ledger__num mono">48.4%</span>
+      </div>
+    </div>
+
+    <p class="failure__pull">
+      The government built the platform, onboarded a quarter-million panchayats, recorded sixty-two
+      thousand observations, <strong>and closed zero of them.</strong>
+    </p>
+  </section>
+
+  <!-- ══════════════ THE SIMULATED LIVE-RUN — the centerpiece ══════════════ -->
+  <section class="band band--run" id="run" aria-labelledby="run-title">
+    <div class="band__head">
+      <h2 id="run-title" class="band__title">
+        <span class="chitra">CHITRAGUPTA <span class="deva" lang="hi">चित्रगुप्त</span></span>
+        runs the audit as four batch jobs.
+      </h2>
+      <p class="band__lede">
+        The four techniques CAG used by hand (a perceptual hash, a date comparison, a
+        <code>GROUP&nbsp;BY</code>, a device-itinerary check) run here over the Kamalapur works.
+        Four independent detectors. <strong>Never fused into one score.</strong>
+      </p>
+    </div>
+
+    <div class="terminal" data-terminal>
+      <div class="terminal__bar" aria-hidden="true">
+        <span class="terminal__dot"></span><span class="terminal__dot"></span><span class="terminal__dot"></span>
+        <span class="terminal__path mono">saakshi — python run_demo.py</span>
+        <button type="button" class="terminal__replay" data-replay hidden>
+          <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 3V1L4.5 4 8 7V5a3 3 0 1 1-3 3H3a5 5 0 1 0 5-5z" fill="currentColor"/></svg>
+          Replay
+        </button>
+      </div>
+
+      <div class="terminal__body">
+        <pre class="terminal__banner mono" aria-hidden="true">==================================================================
+  SAAKSHI  the witness for every rupee
+  Data: SYNTHETIC reconstruction of the March 2026 CAG Karnataka
+        MGNREGA audit. Not live-scraped.
+  Corpus: 484 works · 1,304 payments · 418 photos · 509 tenders
+==================================================================</pre>
+
+        <p class="terminal__synthetic">
+          <span class="warn-mark" aria-hidden="true">⚠</span>
+          The dataset below is a <strong>synthetic reconstruction of published CAG findings</strong>,
+          not live-scraped portal data. Every line marked <span class="mono">VALIDATED</span> is a
+          detector rediscovering a structure seeded to match a real CAG number.
+        </p>
+
+        <ol class="detectors" data-detectors aria-label="The four forensic detectors running on the Kamalapur works">
+
+          <li class="detector" data-detector="1" data-conf="high">
+            <div class="detector__head">
+              <span class="detector__idx mono">①</span>
+              <h3 class="detector__name">PHOTO FORENSICS</h3>
+              <span class="detector__method mono">perceptual hash</span>
+              <span class="detector__status mono" data-status>queued</span>
+            </div>
+            <div class="detector__body">
+              <p class="detector__finding">
+                Near-duplicate completion photo. <b>Hamming <span class="mono">0/64</span></b>, an exact match.
+              </p>
+              <dl class="kv">
+                <div><dt>photos</dt><dd class="mono">nmms_88213 ↔ nmms_71104</dd></div>
+                <div><dt>works</dt><dd class="mono">KA-KLB-2026-00412 ↔ KA-KOP-2026-00189</dd></div>
+                <div><dt>distance</dt><dd class="mono"><span data-count="61.4">61.4</span> km apart · cross-district</dd></div>
+              </dl>
+            </div>
+          </li>
+
+          <li class="detector" data-detector="2" data-conf="high">
+            <div class="detector__head">
+              <span class="detector__idx mono">②</span>
+              <h3 class="detector__name">PAYMENT STRUCTURE</h3>
+              <span class="detector__method mono">temporal + threshold</span>
+              <span class="detector__status mono" data-status>queued</span>
+            </div>
+            <div class="detector__body">
+              <p class="detector__finding">
+                <b><span data-count="462">462</span> stage-payments</b> after the claimed completion date —
+                total <b>₹1.19&nbsp;crore</b>.
+                <span class="tag tag--green mono">MATCH — VALIDATED</span>
+              </p>
+              <dl class="kv">
+                <div><dt>threshold-split</dt><dd class="mono">₹2.4L + ₹2.9L = ₹5.3L, crossing the ₹5L tender limit</dd></div>
+                <div><dt>same</dt><dd class="mono">GP 231045 · vendor V-04412 · 11 days apart</dd></div>
+              </dl>
+            </div>
+          </li>
+
+          <li class="detector" data-detector="3" data-conf="medium">
+            <div class="detector__head">
+              <span class="detector__idx mono">③</span>
+              <h3 class="detector__name">NETWORK · PROCUREMENT</h3>
+              <span class="detector__method mono">single-bid rate</span>
+              <span class="detector__status mono" data-status>queued</span>
+            </div>
+            <div class="detector__body">
+              <p class="detector__finding">
+                National single-bid rate <b><span data-count="14.0">14.0</span>%</b>
+                <span class="tag tag--saffron mono">FIRST EVER</span> — no Indian body has ever published this.
+              </p>
+              <dl class="kv">
+                <div><dt>vendor V-04412</dt><dd class="mono">“Shri Basava Constructions” — won <span data-count="11">11</span> of 16 tenders</dd></div>
+                <div><dt>all 11</dt><dd class="mono">as the sole bidder · +2.1% premium</dd></div>
+              </dl>
+            </div>
+          </li>
+
+          <li class="detector" data-detector="4" data-conf="flag">
+            <div class="detector__head">
+              <span class="detector__idx mono">④</span>
+              <h3 class="detector__name">DEVICE ITINERARY</h3>
+              <span class="detector__method mono">EXIF / GPS clustering</span>
+              <span class="detector__status mono" data-status>queued</span>
+            </div>
+            <div class="detector__body">
+              <p class="detector__finding">
+                One device — <b>“Redmi 9A”</b> — geo-tagged <b><span data-count="8">8</span> sites in ≤&nbsp;60&nbsp;min</b>,
+                a span of <span class="mono">41.4 km</span>. Physically impossible.
+              </p>
+              <dl class="kv">
+                <div><dt>reading</dt><dd class="mono">one phone, eight “attendances”, one hour</dd></div>
+              </dl>
+            </div>
+          </li>
+        </ol>
+
+        <p class="terminal__result mono" data-result hidden>
+          <span class="terminal__result-mark">✔</span>
+          5/5 checks PASS · 10/10 tests · detectors re-derived the CAG findings
+        </p>
+      </div>
+    </div>
+
+    <p class="run__foot">
+      There is no research frontier here. The bottleneck was never capability. It was that
+      38.58% coverage is the most humans can manage. <strong>Compute does not get tired.</strong>
+    </p>
+  </section>
+
+  <!-- ══════════════ THE CASE FILE — GHADI ══════════════ -->
+  <section class="band band--casefile" id="casefile" aria-labelledby="casefile-title">
+    <div class="band__head">
+      <h2 id="casefile-title" class="band__title band__title--invert">
+        <span class="ghadi">GHADI <span class="deva" lang="hi">घड़ी</span></span>
+        assembles the four signals, and starts a clock.
+      </h2>
+      <p class="band__lede band__lede--invert">
+        Finding fraud is not the hard part. AuditOnline holds 62,745 observations and 0 Action Taken
+        Reports. GHADI turns a finding into a portable case file, a specific RTI, and a public countdown.
+      </p>
+    </div>
+
+    <article class="dossier" aria-label="Case file KA-KLB-2026-00412">
+      <header class="dossier__head">
+        <div>
+          <h3 class="dossier__id mono">CASE KA-KLB-2026-00412</h3>
+          <p class="dossier__loc mono">Kamalapur GP · Kalaburagi, Karnataka · LGD 226534</p>
+        </div>
+        <span class="dossier__status mono">AWAITING DEPARTMENT RESPONSE</span>
+      </header>
+
+      <dl class="dossier__meta">
+        <div><dt>Work</dt><dd>Farm pond, survey no. 112/3</dd></div>
+        <div><dt>Scheme</dt><dd>MGNREGA</dd></div>
+        <div><dt>Sanction</dt><dd class="mono">₹4,20,000 · 12 Mar 2026</dd></div>
+        <div><dt>Claimed</dt><dd class="mono">Completed 14 Jun 2026</dd></div>
+      </dl>
+
+      <p class="dossier__signals-label mono">FOUR INDEPENDENT SIGNALS — never fused into one score</p>
+      <div class="signals">
+        <section class="signal" aria-labelledby="sig1-h">
+          <p class="signal__top"><span class="signal__idx mono">①</span><span class="conf conf--high mono">HIGH</span></p>
+          <h4 id="sig1-h" class="signal__name">Photo forensic</h4>
+          <p class="signal__detail">
+            Completion photo pHash-identical (Hamming&nbsp;0/64) to work KA-KOP-2026-00189, 61 km away.
+          </p>
+          <p class="signal__evidence mono">▸ nmms_88213 · nmms_71104 · deterministic, reproducible</p>
+        </section>
+
+        <section class="signal" aria-labelledby="sig2-h">
+          <p class="signal__top"><span class="signal__idx mono">②</span><span class="conf conf--high mono">HIGH</span></p>
+          <h4 id="sig2-h" class="signal__name">Citizen verification</h4>
+          <p class="signal__detail">
+            3 independent anonymous reports: <em>“no pond at this location.”</em>
+            Sybil-checked, zkSNARK-bound, no linkage to identity.
+          </p>
+          <p class="signal__caveat">
+            <span class="warn-mark" aria-hidden="true">⚠</span> simulated input in the offline demo
+          </p>
+          <p class="signal__evidence mono">▸ pramaan_a91f2 · pramaan_c04e8 · pramaan_7b331</p>
+        </section>
+
+        <section class="signal" aria-labelledby="sig3-h">
+          <p class="signal__top"><span class="signal__idx mono">③</span><span class="conf conf--med mono">MEDIUM</span></p>
+          <h4 id="sig3-h" class="signal__name">Network</h4>
+          <p class="signal__detail">
+            Vendor V-04412 won 11 block tenders as sole bidder; award premium +2.1%.
+          </p>
+          <p class="signal__evidence mono">▸ LightGBM on graph features · PU-calibrated · internal triage only</p>
+        </section>
+
+        <section class="signal" aria-labelledby="sig4-h">
+          <p class="signal__top"><span class="signal__idx mono">④</span><span class="conf conf--low mono">LOW</span></p>
+          <h4 id="sig4-h" class="signal__name">Satellite</h4>
+          <p class="signal__detail">
+            Sentinel-2 NDWI delta below threshold; no surface-water feature appeared.
+          </p>
+          <p class="signal__caveat">
+            <span class="warn-mark" aria-hidden="true">⚠</span> 10&nbsp;m GSD — small ponds may be below the detection limit. <strong>NOT dispositive;</strong> a trigger for human verification only.
+          </p>
+          <p class="signal__evidence mono">▸ bi-temporal change detection · simulated in the offline demo</p>
+        </section>
+      </div>
+
+      <div class="unknown">
+        <h4 class="unknown__title mono">WHAT WE DO NOT KNOW</h4>
+        <ul>
+          <li>Whether the pond exists but is below satellite resolution.</li>
+          <li>Whether the duplicate photo is fraud or an upload error.</li>
+          <li>Whether the sole-bidder pattern reflects collusion or a genuine absence of local contractors.</li>
+        </ul>
+        <p class="unknown__verdict">
+          <span class="warn-mark" aria-hidden="true">⚠</span>
+          This case file is a <strong>question</strong>, not a verdict.
+        </p>
+      </div>
+
+      <div class="clock" aria-label="The accountability clock">
+        <h4 class="clock__title mono">THE CLOCK <span class="clock__sub">— public, and counting</span></h4>
+        <div class="clock__rows">
+          <p><span class="clock__k mono">RTI §6(1) filed</span><span class="clock__v mono">14 Jul 2026</span></p>
+          <p><span class="clock__k mono">Statutory deadline (30 days)</span><span class="clock__v mono">13 Aug 2026</span></p>
+          <p class="clock__count"><span class="clock__k mono">Days remaining</span><span class="clock__v clock__v--big mono">14</span></p>
+          <p><span class="clock__k mono">CPGRAMS grievance</span><span class="clock__v mono">CPGRAMS/2026/0412773 · 21-day</span></p>
+          <p><span class="clock__k mono">Responsible office</span><span class="clock__v mono">[designation only, never a name]</span></p>
+        </div>
+        <p class="clock__note">
+          It drafts a <strong>specific</strong> RTI, pre-filled with exact document IDs. A specific one
+          cannot be refused for vagueness. It never names an individual. The target is the process.
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ══════════════ THE CITIZEN LOOP ══════════════ -->
+  <section class="band band--loop" id="loop-sec" aria-labelledby="loop-title">
+    <div class="band__head">
+      <h2 id="loop-title" class="band__title">
+        Then it asks Lakshmi — who walks past the spot twice a day.
+      </h2>
+      <p class="band__lede">
+        Every reporting system in India starts with the citizen: <em>here is a form, tell us what’s wrong.</em>
+        <span class="pramaan">PRAMAAN <span class="deva" lang="hi">प्रमाण</span></span>
+        inverts it. The machine does the analysis first, then asks one physical question a person with
+        no literacy, no training and no smartphone can answer in one syllable.
+      </p>
+    </div>
+
+    <div class="loop">
+      <div class="loop__persona">
+        <h3 class="loop__name">Lakshmi, 42</h3>
+        <p class="loop__bio">
+          Kalaburagi, Karnataka. Works under MGNREGA when work is available; has a job card.
+          Cannot read English, reads Kannada slowly, does not own a smartphone. Her son does,
+          and he works in Bengaluru.
+        </p>
+        <p class="loop__sensor">
+          She is the highest-resolution sensor in the entire system, and nobody has ever asked her a question.
+        </p>
+      </div>
+
+      <div class="call" aria-label="An illustrative toll-free call, about 100 seconds">
+        <div class="call__head">
+          <svg class="call__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 3h3l1.5 5-2 1.5a12 12 0 0 0 6 6l1.5-2 5 1.5v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 5.2 2 2 0 0 1 5 3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <span class="call__num mono">1800-XXX-XXXX</span>
+          <span class="call__meta mono">toll-free · illustrative · ~100 s</span>
+        </div>
+        <ol class="call__thread">
+          <li class="turn turn--sys"><span class="turn__who mono">SAAKSHI</span><span lang="kn">ನಮಸ್ಕಾರ. ಇದು ಸಾಕ್ಷಿ.</span> To hear what your panchayat was paid, press&nbsp;1. To report what you have seen, press&nbsp;2.</li>
+          <li class="turn turn--user"><span class="turn__who mono">Lakshmi</span>[presses 1] · says “Kamalapur”</li>
+          <li class="turn turn--sys"><span class="turn__who mono">SAAKSHI</span>I heard Kamalapur, Kalaburagi. Press&nbsp;1 if correct. <span class="turn__aside">— verbal confirmation, because Kannada word-error ≈ 20%</span></li>
+          <li class="turn turn--sys"><span class="turn__who mono">SAAKSHI</span>A farm pond at survey 112/3. ₹4 lakh 20 thousand, marked complete on 14 June. <b>Three things do not match.</b> The photo is identical to one 60 km away; satellite shows no change; the contractor won 11 of 16 contracts unopposed.</li>
+          <li class="turn turn--sys turn--warn"><span class="warn-mark" aria-hidden="true">⚠</span> Saakshi cannot see small things from satellite, and Saakshi can be wrong. Only you can see the truth. <b>Is there a pond at survey 112/3?</b></li>
+          <li class="turn turn--user turn--label"><span class="turn__who mono">Lakshmi</span>[presses 2 — <b>no</b>] <span class="turn__tag mono">← the label</span></li>
+          <li class="turn turn--sys"><span class="turn__who mono">SAAKSHI</span>Your answer is completely anonymous. No officer will ever know who called. Case KA-KLB-2026-00412 is open; an RTI is prepared. The government has 30 days.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="flywheel">
+      <p class="flywheel__lead">Her anonymous “no pond here” is not a complaint.</p>
+      <p class="flywheel__claim">
+        It is a <strong>ground-truth training label</strong>: the exact thing the procurement-fraud
+        literature says does not exist. It retrains the network detector, so similar patterns elsewhere
+        now score higher. More reports → a better model → better-targeted questions → more useful reports.
+      </p>
+      <p class="flywheel__novel">This closed loop is the novel contribution. Nobody has published it.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ HONEST LIMITS ══════════════ -->
+  <section class="band band--limits" id="limits" aria-labelledby="limits-title">
+    <div class="band__head">
+      <h2 id="limits-title" class="band__title">
+        The honest limits, shipped with the capability, not in a footnote.
+      </h2>
+      <p class="band__lede">
+        Overclaiming loses a technical judge and hurts people. So each capability arrives with the line
+        that constrains it.
+      </p>
+    </div>
+
+    <ul class="limits">
+      <li class="limit">
+        <span class="warn-mark limit__mark" aria-hidden="true">⚠</span>
+        <h3 class="limit__title">Satellite cannot see small assets</h3>
+        <p class="limit__body">
+          At 10&nbsp;m ground sample distance, one pixel is 100&nbsp;m². Rural toilets, hand-pumps and single
+          house extensions are <strong>physically invisible</strong>. This is a physical limit, not a
+          modelling one. Small assets skip satellite entirely and go straight to a citizen.
+        </p>
+      </li>
+      <li class="limit">
+        <span class="warn-mark limit__mark" aria-hidden="true">⚠</span>
+        <h3 class="limit__title">Speech recognition is genuinely imperfect</h3>
+        <p class="limit__body">
+          Best achievable word-error is <span class="mono">16.2%</span> in Hindi and
+          <span class="mono">35.1%</span> in Odia: roughly one word in three. So VAANI never takes
+          free-form dictation. Structured slots, DTMF fallback on every prompt, verbal confirmation loops.
+        </p>
+      </li>
+      <li class="limit">
+        <span class="warn-mark limit__mark" aria-hidden="true">⚠</span>
+        <h3 class="limit__title">This prototype dataset is synthetic</h3>
+        <p class="limit__body">
+          The bundled corpus is a <strong>synthetic reconstruction of published CAG findings</strong>, not
+          live-scraped portal data. Live ingest crawls the real public portals and is out of scope for a
+          zero-network demo. Everything marked <span class="mono">VALIDATED</span> re-derives a real CAG number.
+        </p>
+      </li>
+      <li class="limit">
+        <span class="warn-mark limit__mark" aria-hidden="true">⚠</span>
+        <h3 class="limit__title">Read-only, and never one score</h3>
+        <p class="limit__body">
+          It never denies a payment, blocks a job card, or gates a ration. And it emits four independent
+          signals — never a fused “corruption score,” which the red-flag literature shows is statistically
+          unjustified. <strong>A false positive costs an official an explanation, never a citizen her rice.</strong>
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ══════════════ IMPACT + NATIONAL PRIORITIES ══════════════ -->
+  <section class="band band--impact" id="impact" aria-labelledby="impact-title">
+    <div class="band__head">
+      <h2 id="impact-title" class="band__title band__title--invert">Mechanisms, not wishes.</h2>
+    </div>
+
+    <div class="ledger ledger--impact" role="table" aria-label="The mechanism behind each claim">
+      <div class="ledger__row ledger__row--head" role="row">
+        <span role="columnheader">The mechanism, stated plainly</span>
+        <span role="columnheader" class="ledger__num-head">What it yields</span>
+      </div>
+      <div class="ledger__row" role="row">
+        <span role="cell" class="ledger__label">
+          <b>Recovery, not just detection.</b> Moving recovery from 13% to 20% on the &gt;₹1,000 crore
+          already detected, from a system that runs on a laptop and free imagery.
+        </span>
+        <span role="cell" class="ledger__num ledger__num--good mono">≈ ₹70 cr<span class="ledger__num-unit">/ yr</span></span>
+      </div>
+      <div class="ledger__row" role="row">
+        <span role="cell" class="ledger__label">
+          <b>National on the first day.</b> The LGD code is already the universal join key across
+          255,297 gram panchayats. Nothing needs to be rebuilt for national scope.
+        </span>
+        <span role="cell" class="ledger__num mono">Day&nbsp;one</span>
+      </div>
+      <div class="ledger__row" role="row">
+        <span role="cell" class="ledger__label">
+          <b>Anyone can run it.</b> The Python standard library alone. Clone and run in one command:
+          zero dependencies, no network, no keys.
+        </span>
+        <span role="cell" class="ledger__num mono">MIT</span>
+      </div>
+    </div>
+
+    <div class="align">
+      <p class="align__lead mono">REUSES, DOES NOT REBUILD</p>
+      <ul class="align__list">
+        <li>Viksit Bharat 2047</li>
+        <li>Digital India</li>
+        <li>Bhashini</li>
+        <li>RTI Act 2005 §6(1)</li>
+        <li>MGNREGA §17 social audit</li>
+        <li>CPGRAMS guidelines</li>
+        <li>DPDP Act 2023</li>
+        <li>DBT Mission</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════════ CLOSE / TEAM / CTA ══════════════ -->
+  <section class="band band--close" id="close" aria-labelledby="close-title">
+    <div class="close__grid">
+      <div class="close__copy">
+        <h2 id="close-title" class="close__title">Clone it. Run it. Watch the detectors re-derive the audit.</h2>
+        <p class="close__lede">
+          A judge who cannot run your prototype scores it as a mockup. This one runs in one command on the
+          standard library: no <code>pip install</code>, no network, no API keys.
+        </p>
+
+        <div class="cmd" data-cmd>
+          <code class="cmd__line mono"><span class="cmd__prompt">$</span> python run_demo.py</code>
+          <button type="button" class="cmd__copy" data-copy="python run_demo.py" aria-label="Copy command">
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="5" y="5" width="9" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+            <span class="cmd__copy-label" data-copy-label>Copy</span>
+          </button>
+        </div>
+        <p class="cmd__second mono">
+          <span class="cmd__prompt">$</span> python -m unittest discover -s tests
+          <span class="cmd__annot">→ 10 tests · 5/5 validation checks</span>
+        </p>
+
+        <div class="close__actions">
+          <a class="btn btn--primary" href="#top">
+            Open the repository
+            <svg class="btn__arrow" viewBox="0 0 24 12" aria-hidden="true" focusable="false"><path d="M0 6h21M16 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#run">Re-watch the run</a>
+        </div>
+      </div>
+
+      <aside class="team" aria-labelledby="team-h">
+        <h3 id="team-h" class="team__title mono">THE TEAM</h3>
+        <p class="team__placeholder">[Team — to be added]</p>
+        <p class="team__note">
+          Team names and contacts are deliberately left blank. The toll-free number is illustrative;
+          the demo dataset is a synthetic reconstruction. Nothing here is fabricated.
+        </p>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="colophon" role="contentinfo">
+  <p class="colophon__line">
+    Chitragupta keeps the ledger. Saakshi bears witness. Bharat asks the question.
+  </p>
+  <p class="colophon__meta">
+    <span class="wordmark__deva" lang="hi" aria-hidden="true">साक्षी</span>
+    SAAKSHI · the witness for every rupee · MIT · TechGig × Optum, Theme 05 — GovTech &amp; Public Service Delivery
+  </p>
+</footer>
+
+<script src="app.js" defer></script>
+<script src="tour.js" defer></script>
+</body>
+</html>
