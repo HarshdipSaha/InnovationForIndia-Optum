@@ -1,23 +1,39 @@
-# InnovationForIndia-Optum — SAAKSHI (साक्षी), "the witness for every rupee"
+<div align="center">
 
-Submission to **TechGig x Optum — Inclusive Innovation for Bharat**, Theme 05 (GovTech & Public Service
-Delivery). SAAKSHI is a proposed read-only forensic and accountability layer over India's public
-spending data, plus a toll-free multilingual voice channel, that surfaces evidenced, contestable
-questions about welfare spending and asks the citizen who can see the asset to verify it.
+# 👁️ SAAKSHI
 
-This repository holds the whole submission: application form, pitch deck, demo video, a static website,
-a runnable prototype, and the concept and evidence documents behind them.
+### "The witness for every rupee" — automated forensic & accountability layer over India's public spending data
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-A371F7.svg?style=flat-square)](05_Prototype/LICENSE)
+[![Python: 3.11+](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white)](05_Prototype/pyproject.toml)
+[![CAG Audit: Validated](https://img.shields.io/badge/CAG%20Audit-Validated-3fb950?style=flat-square)](05_Prototype/docs/DEMO_OUTPUT.txt)
+[![Tests: 10/10](https://img.shields.io/badge/tests-10%2F10%20passed-3fb950?style=flat-square)](05_Prototype/tests/)
+[![TechGig x Optum](https://img.shields.io/badge/TechGig%20x%20Optum-GovTech-0d1117?style=flat-square)](https://www.techgig.com)
+
+**[How it works](#how-the-prototype-works)** · **[The detectors](#the-prototype-summary-of-05_prototypereadmemd)** · **[Results](#results-from-05_prototypereadmemd-and-docsdemo_outputtxt-synthetic-data)** · **[Try it](#the-prototype-summary-of-05_prototypereadmemd)** · **[What is in the submission](#what-is-in-the-submission)**
+
+</div>
+
+<div align="center">
+  <img src="docs/assets/demo.gif" alt="SAAKSHI 4-layer forensic detectors discovering CAG findings and citizen verification loop" width="880">
+</div>
+
+---
+
+Submission to **TechGig x Optum — Inclusive Innovation for Bharat**, Theme 05 (GovTech & Public Service Delivery). SAAKSHI is a proposed read-only forensic and accountability layer over India's public spending data, plus a toll-free multilingual voice channel, that surfaces evidenced, contestable questions about welfare spending and asks the citizen who can see the asset to verify it.
+
+This repository holds the submission: pitch deck, demo video, a static website, a runnable prototype, reproducible demo visuals, and the concept and evidence documents behind them.
 
 ## What is in the submission
 
 | Folder | Contents |
 |---|---|
-| `01_Application_Form/` | `SAAKSHI_Application_FILLED.docx` / `.pdf` |
 | `02_Pitch_Deck/` | `SAAKSHI.pptx` |
 | `03_Demo_Video/` | `SAAKSHI_demo.mp4` |
 | `04_Website/` | static site (`index.html`, `styles.css`, `app.js`, `tour.js`), vanilla HTML/CSS/JS, no build step; opens via `file://` |
 | `05_Prototype/` | the runnable prototype — see [`05_Prototype/README.md`](05_Prototype/README.md) |
 | `06_Concept_and_Evidence/` | [`idea.md`](06_Concept_and_Evidence/idea.md) (the idea), [`PLAN.md`](06_Concept_and_Evidence/PLAN.md) (the build plan), [`RESEARCH.md`](06_Concept_and_Evidence/RESEARCH.md) (evidence base with reliability markers), [`PRODUCT.md`](06_Concept_and_Evidence/PRODUCT.md) (product schema for the website), [`DESIGN.md`](06_Concept_and_Evidence/DESIGN.md) (visual tokens) |
+| `scripts/` | [`make_demo_gif.py`](scripts/make_demo_gif.py) — script to reproduce the demo GIF |
 
 ## The prototype (summary of `05_Prototype/README.md`)
 
@@ -82,3 +98,8 @@ CAG numbers, these results validate the detectors' logic, not live portal data.
 
 The prototype (`05_Prototype/`) is MIT licensed (`05_Prototype/LICENSE`). There is no license file at
 the repository root.
+
+<div align="center">
+<br>
+<b>SAAKSHI</b> (साक्षी) — the witness for every rupee.
+</div>
